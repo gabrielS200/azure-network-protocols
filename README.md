@@ -33,7 +33,11 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 
 </p>
 <p>
-Our first step in our project is to set up two VMs in Azure. Once those two VMs have been set up take the public IP adrress from the Windows VM and remote into the VM using remote desktop. Remeber that the username and password used while seetting up the VM will need to be used to remote in, so make sure that you keep those handy. While in the windows VM go to the wireshark website and download, then install Wireshark. Open Wireshark and filter the trafic to ICMP (Internet Control Messaging Protocol) trafic by typing icmp into the top bar. This is the protocol that ping uses. Once you have done that go back into Azure and find the private IP of the Linux VM. Copy that and then ping it cotinuously from the Windows VM using the commandline. Use the command ping \private IP adress\ -t. In the windows VM Wireshark should be showing the ICMP traffic. 
+Our first step in the project is to set up two VMs in Azure. Once those two VMs have been set up, take the public IP address from the Windows VM and remote into the VM using Remote Desktop. Remember that the username and password used while setting up the VM will need to be used to remote in, so make sure that you keep those handy.
+
+While in the Windows VM, go to the Wireshark website, download, and then install Wireshark. Open Wireshark and filter the traffic to ICMP (Internet Control Message Protocol) traffic by typing "icmp" into the top bar. This is the protocol that ping uses.
+
+Once you have done that, go back into Azure and find the private IP of the Linux VM. Copy that and then ping it continuously from the Windows VM using the command line. Use the command "ping [private IP address] -t". In the Windows VM, Wireshark should be showing the ICMP traffic.
 </p>
 <br />
 
@@ -43,7 +47,7 @@ Our first step in our project is to set up two VMs in Azure. Once those two VMs 
 
 </p>
 <p>
-Now lets stop the pings by going into Azure and going into the network security group of the Linux VM. Then go into the Inbound security rules tab and add a rule that blocks ICMP traffic. The rule should tick the icmp protocol and deny the action. Now go back into the Windows VM and observe the change. Now the firewall from VM2 will block VM1 from pinging it. Now go back to Azure and allow icmp traffic and observe the change. 
+Now, let's stop the pings by going into Azure and accessing the network security group of the Linux VM. Then proceed to the Inbound security rules tab and add a rule that blocks ICMP traffic. The rule should select the ICMP protocol and set the action to deny. Afterward, return to the Windows VM and observe the change. With the new rule in place, the firewall on VM2 will prevent VM1 from pinging it. Next, navigate back to Azure to allow ICMP traffic and observe the change.
 </p>
 <br />
 
@@ -53,10 +57,7 @@ Now lets stop the pings by going into Azure and going into the network security 
 
 </p>
 <p>
-Now in Wireshark filter by SSH. open powershell and SSH into the other VM using the command ssh (user)@ip adress. SSH traffic should now show up in Wireshark. Now in Wireshark filter by DHCP. We will observe DHCP traffic by typing ipconfig /renew in the commandline. Now we will observe DNS trafic. Filter by DNS in Wireshark then type, nslookup www.google.com, and observe that Wireshark shows the DNS traffic. Lastly we will observe RDP traffic by typing into the Wireshark box tcp.port == 3389. 
-  
+Now, in Wireshark, filter by SSH. Open PowerShell and SSH into the other VM using the command "ssh (user)@ip address". SSH traffic should now be visible in Wireshark. Next, filter by DHCP in Wireshark. To observe DHCP traffic, type "ipconfig /renew" in the command line. Moving on, let's observe DNS traffic. Filter by DNS in Wireshark, then type "nslookup www.google.com" and notice that Wireshark displays the DNS traffic. Lastly, we will examine RDP traffic by typing "tcp.port == 3389" in the Wireshark filter box.
 
-
-Now that we have done these steps we can now comfortably observe network trafic and gain some familiarity when it comes to what our computers are doing in the background while we use them and we have learned how to use features in Azure to block traffic using Network Security Groups.
-</p>
+Now that we have completed these steps, we can comfortably observe network traffic and gain familiarity with what our computers are doing in the background while we use them. We have also learned how to utilize features in Azure to block traffic using Network Security Groups.
 <br />
