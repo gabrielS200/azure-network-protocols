@@ -22,8 +22,8 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 
 - Step 1: Create 2 VMs in Azure (one linux VM, and Windows 10 VM)
 - Step 2: Remote into the Windows 10 VM and download Wireshark to start viewing netwokr traffic
-- Step 3: Use the command line while Wireshark is open to ping the Linux server and observe trafic
-- Step 4:
+- Step 3: Use the command line while Wireshark is open to ping the Linux server and observe trafic using different protocols
+- Step 4: Block traffic using Network Security Group settings in Azure and oberve the changes
 
 <h2>Actions and Observations</h2>
 
